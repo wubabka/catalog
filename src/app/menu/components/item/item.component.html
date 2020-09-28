@@ -1,4 +1,4 @@
-<button type="button" class="common">
+<button #itemElement type="button" class="common">
   <button
     type="button"
     class="common__button popover-detect"
@@ -7,11 +7,11 @@
     <app-icon-menu class="common__icon common__icon--menu"></app-icon-menu>
   </button>
 
-  <span class="common__title">
-    {{ item.name }}
-  </span>
+  <span class="common__wrapper" (click)="addActive()">
+    <span class="common__title">
+      {{ item.name }}
+    </span>
 
-  <span class="common__wrapper">
     <span class="common__sale"> {{ item.sale }} ₽ </span>
 
     <button

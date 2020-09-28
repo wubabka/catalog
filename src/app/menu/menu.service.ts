@@ -141,4 +141,11 @@ export class MenuService {
       this.currentElement[arr].push(item);
     }
   }
+
+  clearCommonList(): void {
+    const commonList = document.querySelectorAll('.common--active');
+    commonList.forEach((val) => {
+      val.classList.remove('common--active');
+    });
+  }
 }

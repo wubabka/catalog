@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 import { Section } from '../../interfaces/section';
 
@@ -21,6 +29,8 @@ export class SectionComponent implements OnInit {
   @Output() clickDown = new EventEmitter();
   @Output() clickMenu = new EventEmitter();
 
+  @ViewChild('sectionElement', { static: false }) sectionElement: ElementRef;
+
   constructor(
     public menuService: MenuService,
     private popoverService: PopoverService
@@ -28,7 +38,9 @@ export class SectionComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleList(evt): void {
+  toggleList(): void {
+    this.menuService.clearCommonList();
+
     this.isShowContent = !this.isShowContent;
   }
 
@@ -41,6 +53,8 @@ export class SectionComponent implements OnInit {
   }
 
   onClickMenu(evt): void {
+    this.menuService.clearCommonList();
+
     this.clickMenu.emit(evt);
   }
 
@@ -49,5 +63,11 @@ export class SectionComponent implements OnInit {
     this.popoverService.getPopoverType(type);
 
     this.menuService.getCurrentElement(item);
+  }
+
+  addActive(): void {
+    this.menuService.clearCommonList();
+
+    this.sectionElement.nativeElement.classList.add('common--active');
   }
 }

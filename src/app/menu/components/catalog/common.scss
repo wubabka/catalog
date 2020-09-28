@@ -13,7 +13,7 @@
   border: none;
   border-radius: 6px;
 
-  &:hover {
+  &--active {
     background-color: #409bef;
 
     .common__button {
@@ -91,6 +91,33 @@
     opacity: 0.3;
     pointer-events: none;
   }
+
+  &--menu {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+
+      width: 32px;
+      height: 32px;
+      background-color: #409bef;
+
+      border-radius: 50%;
+    }
+
+    .common__icon {
+      &--menu {
+        ::ng-deep {
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
 }
 
 .common__icon {
@@ -127,9 +154,10 @@
 
 .common__wrapper {
   display: flex;
+  flex-grow: 1;
   align-items: center;
 
-  margin-left: auto;
+  margin-left: 8px;
 }
 
 .common__title,
@@ -141,9 +169,18 @@
 }
 
 .common__title {
+  margin-right: auto;
+
+  text-align: left;
+
   &--semi-bold {
     font-weight: 500;
   }
+}
+
+.common__sale {
+  text-align: right;
+  white-space: nowrap;
 }
 
 .common__text {

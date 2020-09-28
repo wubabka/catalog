@@ -1,5 +1,5 @@
 <div>
-  <button type="button" class="common">
+  <button #sectionElement type="button" class="common">
     <span
       *ngIf="type === 'first'"
       class="common__line"
@@ -13,7 +13,7 @@
       [class.common__button--disabled]="
         !section?.sections?.length && !section?.items?.length
       "
-      (click)="toggleList($event)"
+      (click)="toggleList()"
     >
       <app-icon-tree class="common__icon common__icon--tree"></app-icon-tree>
     </button>
@@ -26,11 +26,11 @@
       <app-icon-menu class="common__icon common__icon--menu"></app-icon-menu>
     </button>
 
-    <span class="common__title common__title--semi-bold">
-      {{ section?.name }}
-    </span>
+    <span class="common__wrapper" (click)="addActive()">
+      <span class="common__title common__title--semi-bold">
+        {{ section?.name }}
+      </span>
 
-    <span class="common__wrapper">
       <button
         *ngIf="isUpButton"
         type="button"

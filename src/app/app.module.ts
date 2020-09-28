@@ -1,4 +1,4 @@
-import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import { MenuModule } from './menu/menu.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HammerModule, MenuModule],
+  imports: [BrowserModule, AppRoutingModule, MenuModule],
   providers: [],
   bootstrap: [AppComponent],
 })

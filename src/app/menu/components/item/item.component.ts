@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 import { Item } from '../../interfaces/item';
 
@@ -18,6 +26,8 @@ export class ItemComponent implements OnInit {
   @Output() clickDown = new EventEmitter();
   @Output() clickMenu = new EventEmitter();
 
+  @ViewChild('itemElement', { static: false }) itemElement: ElementRef;
+
   constructor(public menuService: MenuService) {}
 
   ngOnInit(): void {}
@@ -31,6 +41,14 @@ export class ItemComponent implements OnInit {
   }
 
   onClickMenu(evt): void {
+    this.menuService.clearCommonList();
+
     this.clickMenu.emit(evt);
+  }
+
+  addActive(): void {
+    this.menuService.clearCommonList();
+
+    this.itemElement.nativeElement.classList.add('common--active');
   }
 }

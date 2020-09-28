@@ -29,8 +29,12 @@ export class CatalogComponent implements OnInit {
     for (const val of path) {
       if (val?.classList?.contains('popover-detect')) {
         if (this.currentElement === val && this.popover) {
+          val.classList.remove('common__button--menu');
+
           this.popoverService.hidePopover();
         } else {
+          val.classList.add('common__button--menu');
+
           this.popoverService.showPopover();
         }
 
@@ -41,6 +45,8 @@ export class CatalogComponent implements OnInit {
     }
 
     if (!path.some((el) => el === this.currentElement)) {
+      this.currentElement.classList.remove('common__button--menu');
+
       this.popoverService.hidePopover();
     }
   }
