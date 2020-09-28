@@ -1,0 +1,12 @@
+.menu {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 414px;
+  min-height: 100vh;
+  padding: 0 12px;
+
+  background-color: #edf1f8;
+}

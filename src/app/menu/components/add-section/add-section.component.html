@@ -1,0 +1,37 @@
+<app-layout [title]="'Добавить раздел'">
+  <form [formGroup]="sectionForm" class="layout__form" (ngSubmit)="save()">
+    <app-title [title]="'Название'"></app-title>
+
+    <app-input
+      class="layout__input"
+      [type]="'text'"
+      [placeholder]="'Введите название категории'"
+      [formGroup]="sectionForm"
+      [controlName]="'name'"
+    ></app-input>
+
+    <!--    <app-title [title]="'Раздел'"></app-title>-->
+
+    <!--    <app-dropdown-->
+    <!--      class="layout__input"-->
+    <!--      [list]="sections"-->
+    <!--      [placeholder]="'Выберите название раздела'"-->
+    <!--      [formGroup]="sectionForm"-->
+    <!--      [controlName]="'sections'"-->
+    <!--      [isShow]="sectionForm.get('sections').dirty"-->
+    <!--      [currentValue]="sections[0]"-->
+    <!--      (setItem)="setSection($event)"-->
+    <!--    ></app-dropdown>-->
+
+    <app-title [title]="'Цвет раздела'"></app-title>
+
+    <app-colors [colors]="colors" (valueChange)="setColor($event)"></app-colors>
+
+    <app-button-secondary
+      class="layout__button"
+      [title]="'Сохранить'"
+      [type]="'submit'"
+      [disabled]="sectionForm.invalid"
+    ></app-button-secondary>
+  </form>
+</app-layout>

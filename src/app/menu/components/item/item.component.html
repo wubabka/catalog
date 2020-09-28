@@ -1,0 +1,37 @@
+<button type="button" class="common">
+  <button
+    type="button"
+    class="common__button popover-detect"
+    (click)="onClickMenu($event)"
+  >
+    <app-icon-menu class="common__icon common__icon--menu"></app-icon-menu>
+  </button>
+
+  <span class="common__title">
+    {{ item.name }}
+  </span>
+
+  <span class="common__wrapper">
+    <span class="common__sale"> {{ item.sale }} ₽ </span>
+
+    <button
+      *ngIf="isUpButton"
+      type="button"
+      class="common__button common__button--up"
+      (click)="onClickUp()"
+    >
+      <app-icon-up class="common__icon common__icon--up"></app-icon-up>
+      <span class="common__text">вверх</span>
+    </button>
+
+    <button
+      *ngIf="isDownButton"
+      type="button"
+      class="common__button common__button--down"
+      (click)="onClickDown()"
+    >
+      <app-icon-down class="common__icon common__icon--down"></app-icon-down>
+      <span class="common__text">вниз</span>
+    </button>
+  </span>
+</button>

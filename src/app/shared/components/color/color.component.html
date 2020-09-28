@@ -1,0 +1,16 @@
+<label
+  class="color"
+  [for]="'color-' + id"
+  [class.color--active]="colorInput.checked"
+>
+  <span class="color__item" [ngStyle]="{ 'background-color': color }"></span>
+  <input
+    #colorInput
+    class="color__input"
+    type="radio"
+    [id]="'color-' + id"
+    [value]="value"
+    [name]="name"
+    (change)="onValueChange($event)"
+  />
+</label>

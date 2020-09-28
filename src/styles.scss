@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: IBM Plex Sans, serif;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+
+  -webkit-appearance: none;
+}
+
+input::-webkit-contacts-auto-fill-button {
+  position: absolute;
+  right: 0;
+
+  display: none;
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

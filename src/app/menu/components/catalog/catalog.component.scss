@@ -1,0 +1,27 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog__items {
+  display: block;
+
+  margin-top: 8px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 24px;
+  }
+}
+
+.menu__popover {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+}

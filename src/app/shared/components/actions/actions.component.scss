@@ -1,0 +1,12 @@
+.actions {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 12px 0 4px;
+
+  border-top: 1px solid #c3cee0;
+}
+
+.actions-button {
+  width: calc(50% - 6px);
+}

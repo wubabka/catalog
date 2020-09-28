@@ -1,0 +1,12 @@
+<header class="header">
+  <span class="header__title">
+    {{ title }}
+  </span>
+
+  <app-notification
+    class="header__notification"
+    [count]="notificationCount"
+  ></app-notification>
+
+  <app-profile [imgUrl]="imgUrl"></app-profile>
+</header>

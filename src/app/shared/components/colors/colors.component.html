@@ -1,0 +1,10 @@
+<div class="colors">
+  <app-color
+    *ngFor="let color of colors"
+    [color]="color.color"
+    [id]="color.id"
+    [name]="'color'"
+    [value]="color.color"
+    (valueChange)="onValueChange(color)"
+  ></app-color>
+</div>

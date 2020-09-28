@@ -1,0 +1,12 @@
+<button
+  class="button-primary"
+  [type]="type ? type : 'button'"
+  (click)="onClickButton()"
+>
+  <span class="button-primary__icon" *ngIf="isIcon">
+    <ng-content></ng-content>
+  </span>
+  <span class="button-primary__text">
+    {{ text }}
+  </span>
+</button>

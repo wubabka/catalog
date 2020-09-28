@@ -1,0 +1,30 @@
+<app-layout [title]="'Редактировать позицию'">
+  <form class="layout__form" [formGroup]="itemForm" (ngSubmit)="save()">
+    <app-title [title]="'Название'"></app-title>
+
+    <app-input
+      class="layout__input"
+      [type]="'text'"
+      [placeholder]="'Введите название позиции'"
+      [formGroup]="itemForm"
+      [controlName]="'name'"
+    ></app-input>
+
+    <app-title [title]="'Цена'"></app-title>
+
+    <app-input
+      class="layout__input"
+      [type]="'number'"
+      [placeholder]="'0 ₽'"
+      [formGroup]="itemForm"
+      [controlName]="'sale'"
+    ></app-input>
+
+    <app-button-secondary
+      class="layout__button"
+      [title]="'Сохранить'"
+      [disabled]="itemForm?.invalid"
+      [type]="'submit'"
+    ></app-button-secondary>
+  </form>
+</app-layout>

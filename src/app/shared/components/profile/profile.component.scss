@@ -1,0 +1,26 @@
+.profile {
+  display: flex;
+  align-items: center;
+
+  background-color: #edf1f8;
+}
+
+.profile__picture {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+
+.profile__img {
+  border-radius: 50%;
+}
+
+.profile__icon {
+  width: 10px;
+  height: 6px;
+
+  background-image: url("data:image/svg+xml,%3Csvg width=\'10\' height=\'6\' viewBox=\'0 0 10 6\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath fill-rule=\'evenodd\' clip-rule=\'evenodd\' d=\'M0.734835 0.734835C0.881282 0.588388 1.11872 0.588388 1.26517 0.734835L5 4.46967L8.73483 0.734835C8.88128 0.588388 9.11872 0.588388 9.26517 0.734835C9.41161 0.881282 9.41161 1.11872 9.26517 1.26517L5.26517 5.26517C5.11872 5.41161 4.88128 5.41161 4.73483 5.26517L0.734835 1.26517C0.588388 1.11872 0.588388 0.881282 0.734835 0.734835Z\' fill=\'%2322242C\'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

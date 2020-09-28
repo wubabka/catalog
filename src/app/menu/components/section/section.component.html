@@ -1,0 +1,84 @@
+<div>
+  <button type="button" class="common">
+    <span
+      *ngIf="type === 'first'"
+      class="common__line"
+      [ngStyle]="{ 'background-color': section?.color }"
+    ></span>
+
+    <button
+      type="button"
+      class="common__button"
+      [class.common__button--active]="isShowContent"
+      [class.common__button--disabled]="
+        !section?.sections?.length && !section?.items?.length
+      "
+      (click)="toggleList($event)"
+    >
+      <app-icon-tree class="common__icon common__icon--tree"></app-icon-tree>
+    </button>
+
+    <button
+      type="button"
+      class="common__button popover-detect"
+      (click)="onClickMenu($event)"
+    >
+      <app-icon-menu class="common__icon common__icon--menu"></app-icon-menu>
+    </button>
+
+    <span class="common__title common__title--semi-bold">
+      {{ section?.name }}
+    </span>
+
+    <span class="common__wrapper">
+      <button
+        *ngIf="isUpButton"
+        type="button"
+        class="common__button common__button--up"
+        (click)="onClickUp()"
+      >
+        <app-icon-up class="common__icon common__icon--up"></app-icon-up>
+        <span class="common__text">вверх</span>
+      </button>
+
+      <button
+        *ngIf="isDownButton"
+        type="button"
+        class="common__button common__button--down"
+        (click)="onClickDown()"
+      >
+        <app-icon-down class="common__icon common__icon--down"></app-icon-down>
+        <span class="common__text">вниз</span>
+      </button>
+    </span>
+  </button>
+
+  <div class="common__content" *ngIf="isShowContent">
+    <app-section
+      class="common__list"
+      *ngFor="
+        let section of section.sections;
+        let first = first;
+        let last = last
+      "
+      [section]="section"
+      [isUpButton]="!first"
+      [isDownButton]="!last"
+      [type]="'second'"
+      (clickUp)="menuService.goUp(section)"
+      (clickDown)="menuService.goDown(section)"
+      (clickMenu)="showMenu($event, section, 'section')"
+    ></app-section>
+
+    <app-item
+      class="common__list"
+      *ngFor="let item of section.items; let first = first; let last = last"
+      [item]="item"
+      [isUpButton]="!first"
+      [isDownButton]="!last"
+      (clickUp)="menuService.goUp(item)"
+      (clickDown)="menuService.goDown(item)"
+      (clickMenu)="showMenu($event, item, 'item')"
+    ></app-item>
+  </div>
+</div>

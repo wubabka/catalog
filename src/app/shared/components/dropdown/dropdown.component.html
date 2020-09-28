@@ -1,0 +1,20 @@
+<div #dropdown class="dropdown" [formGroup]="formGroup">
+  <app-input
+    class="dropdown__field"
+    [type]="'text'"
+    [placeholder]="placeholder"
+    [formGroup]="formGroup"
+    [controlName]="controlName"
+    [value]="currentValue"
+  ></app-input>
+
+  <div class="dropdown__items" *ngIf="isShow">
+    <span
+      class="dropdown__item"
+      *ngFor="let item of list"
+      (click)="onSetItem(item)"
+    >
+      {{ item }}
+    </span>
+  </div>
+</div>

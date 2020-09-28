@@ -1,0 +1,7 @@
+<div class="popover">
+  <app-item
+    *ngFor="let popover of popovers"
+    [popover]="popover"
+    (clickItem)="clickItem(popover)"
+  ></app-item>
+</div>

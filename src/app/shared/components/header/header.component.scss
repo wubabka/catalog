@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+
+  padding: 16px 0;
+}
+
+.header__title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+
+  color: #22242c;
+}
+
+.header__notification {
+  margin-right: 16px;
+  margin-left: auto;
+}

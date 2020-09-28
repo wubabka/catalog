@@ -1,0 +1,44 @@
+<div class="catalog">
+  <app-actions></app-actions>
+
+  <ng-container
+    *ngFor="
+      let peace of menuService.catalog;
+      let first = first;
+      let last = last
+    "
+  >
+    <app-section
+      *ngIf="!peace?.hasOwnProperty('sale')"
+      class="catalog__items"
+      [section]="peace"
+      [isUpButton]="!first"
+      [isDownButton]="!last"
+      [type]="'first'"
+      (clickUp)="menuService.goUp(peace)"
+      (clickDown)="menuService.goDown(peace)"
+      (clickMenu)="showPopover($event, peace, 'section')"
+    >
+    </app-section>
+
+    <app-item
+      *ngIf="peace?.hasOwnProperty('sale')"
+      class="catalog__items"
+      [item]="peace"
+      [isUpButton]="!first"
+      [isDownButton]="!last"
+      (clickUp)="menuService.goUp(peace)"
+      (clickDown)="menuService.goDown(peace)"
+      (clickMenu)="showPopover($event, peace, 'item')"
+    ></app-item>
+  </ng-container>
+</div>
+
+<app-popover
+  #popover
+  *ngIf="popoverService.isShowPopover"
+  class="menu__popover"
+  [popovers]="popoverService.popoverItems"
+  [type]="popoverService.popoverType"
+  [ngStyle]="popoverCoords()"
+></app-popover>
